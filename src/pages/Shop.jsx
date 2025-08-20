@@ -36,12 +36,12 @@ function Shop() {
   }
 
   return (
-    <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 mt-8 mb-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 md:gap-6">
+    <div className="w-full px-6 sm:px-8 md:px-10 lg:px-12 mt-8 mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6 md:gap-8">
         {products.map((product) => (
           <div
             key={product.id}
-            className="border-2 border-gray-200 transition transform hover:scale-105 cursor-pointer rounded-lg p-4 shadow-md bg-white flex flex-col h-[400px]"
+            className="border-2 border-gray-200 transition transform hover:scale-105 cursor-pointer rounded-lg p-3 sm:p-4 shadow-md bg-white flex flex-col h-[350px] sm:h-[400px] mx-auto w-[90%] sm:w-full"
           >
             <img
               src={product.image}
