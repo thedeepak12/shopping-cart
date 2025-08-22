@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import cartIcon from '../assets/images/shopping-cart.svg';
 import menuIcon from '../assets/images/menu.svg';
+import { useCart } from '../contexts/CartContext';
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { cartCount } = useCart();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -35,11 +37,18 @@ function Navbar() {
           </Link>
         </div>
 
-        <img
-          className="filter invert w-8 md:w-10 h-auto mr-4 md:mr-10 cursor-pointer"
-          src={cartIcon}
-          alt="Shopping Cart"
-        />
+        <Link to="/cart" className="relative">
+          <img
+            className="filter invert w-8 md:w-10 h-auto mr-4 md:mr-10 cursor-pointer"
+            src={cartIcon}
+            alt="Shopping Cart"
+          />
+          {cartCount > 0 && (
+            <span className="absolute -top-1 left-6 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+              {cartCount}
+            </span>
+          )}
+        </Link>
       </div>
 
       {isMenuOpen && (

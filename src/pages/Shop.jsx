@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchProducts } from '../utils/api';
+import { useCart } from '../contexts/CartContext';
 
 function Shop() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     fetchProducts()
@@ -55,7 +57,10 @@ function Shop() {
               ${product.price}
             </p>
             <div className="mt-auto">
-              <button className="bg-gray-200 text-black px-4 py-2 rounded-full transition cursor-pointer hover:bg-gray-300 w-full">
+              <button
+                onClick={() => addToCart(product)}
+                className="bg-gray-200 text-black px-4 py-2 rounded-full transition cursor-pointer hover:bg-gray-300 w-full"
+              >
                 Add to Cart
               </button>
             </div>
