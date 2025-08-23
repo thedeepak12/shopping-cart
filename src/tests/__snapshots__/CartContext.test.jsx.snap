@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Shopping Cart > should match snapshot 1`] = `
+<div>
+  <div>
+    <p
+      data-testid="cart-count"
+    >
+      Items in cart: 
+      0
+    </p>
+    <button
+      data-testid="add-button"
+    >
+      Add to Cart
+    </button>
+  </div>
+</div>
+`;
